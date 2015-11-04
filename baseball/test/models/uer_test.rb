@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TeamNameTest < ActiveSupport::TestCase
+class UerTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
