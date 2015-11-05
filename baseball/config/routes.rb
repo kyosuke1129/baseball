@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root 'top#index'
   resources :users, only: [:show, :edit, :update]
   resources :teams, only: [:show, :edit, :update]
-  resources :player, only: [:show, :edit, :update]
+  resources :players, only: [:show, :edit, :update, :create]
 end
