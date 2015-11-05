@@ -1,10 +1,8 @@
 <div class= "header">
   <% if user_signed_in? %>
-  <%= link_to "マイページ", user_path(current_user) %> 
+  <%= link_to "個人ページ", user_path(current_user) %> 
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  <%= link_to "プロフィール編集",edit_user_path(current_user) %>
+  <%= link_to "チーム名編集",edit_user_path(current_user) %>
   <% end %>
   <%= link_to "HOME", root_path %>
 </div>
-
-  
