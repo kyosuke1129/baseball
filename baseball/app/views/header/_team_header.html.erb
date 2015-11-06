@@ -1,9 +1,25 @@
-<div class= "header">
-  <% if user_signed_in? %>
-  <%= link_to "個人ページ", user_path(current_user) %> 
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  <%= link_to "チーム名編集",edit_user_path(current_user) %>
-　<%= link_to "選手登録", players_path %>
-  <% end %>
-  <%= link_to "HOME", root_path %>
-</div>
+<nav class="navbar navbar-default">
+    <div class="container">
+      <% if user_signed_in? %>
+        <div class="navbar-header">
+          <a class="navbar-brand">
+            <a href="/users/<%= current_user.id %>">個人ページ</a>
+          </a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active">
+              <%= link_to "選手登録", new_player_path %>
+            </li>
+            <li>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            </li>
+            <li>
+              <a href="/">HOME</a>
+            </li>
+        </ul>
+        <button type="button" class="btn btn-default navbar-btn">
+            <span class="glyphicon glyphicon-envelope"></span>
+        </button>
+        <% end %>
+    </div>
+</nav>

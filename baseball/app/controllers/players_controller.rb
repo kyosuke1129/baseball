@@ -1,6 +1,11 @@
 class PlayersController < ApplicationController
 
+  def new
+  end
+
   def create
+    Player.create(player_params)
+    
   end
 
   def edit
@@ -11,4 +16,11 @@ class PlayersController < ApplicationController
 
   def update
   end
+
+  private
+  def player_params
+    params.permit(:name, :at_bat, :hand, :number)
+  end
 end
+
+

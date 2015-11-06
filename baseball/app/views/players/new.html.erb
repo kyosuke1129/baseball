@@ -1,0 +1,12 @@
+<%= form_tag('/players', method: :post) do %>
+    <h3>
+      登録
+    </h3>
+    名前：<input placeholder="名前" type="text" name="name"><br>
+    打席：<input placeholder="打席" type="text" name="at_bat"><br>
+    利き手：<input placeholder="利き手" type="text" name="hand"><br>
+    背番号：<input placeholder="背番号" type="integer" name="number"><br>
+
+
+    <input type="submit" value="SENT">
+  <% end %>

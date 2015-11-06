@@ -1,10 +1,25 @@
-<div class= "header">
-  <% if user_signed_in? %>
-  <%= link_to "マイページ", user_path(current_user) %> 
-  <%= link_to "チーム",team_path(current_user.team) %>
-
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  <%= link_to "プロフィール編集",edit_user_path(current_user) %>
-  <% end %>
-  <%= link_to "HOME", root_path %>
-</div>
+<nav class="navbar navbar-default">
+    <div class="container">
+      <% if user_signed_in? %>
+        <div class="navbar-header">
+          <a class="navbar-brand">
+            <a href="/users/<%= current_user.id %>">マイページ</a>
+          </a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="/teams/">チーム</a>
+            </li>
+            <li>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            </li>
+            <li>
+              <a href="/">HOME</a>
+            </li>
+        </ul>
+        <button type="button" class="btn btn-default navbar-btn">
+            <span class="glyphicon glyphicon-envelope"></span>
+        </button>
+        <% end %>
+    </div>
+</nav>

@@ -1,6 +1,13 @@
 class TeamsController < ApplicationController
+  def index
+    @team = Team.find(params[:id])
+  end
+
+
   def show
     @team = Team.find(params[:id])
+
+
   end
 
   def edit
