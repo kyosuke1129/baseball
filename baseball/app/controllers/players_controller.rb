@@ -1,11 +1,14 @@
 class PlayersController < ApplicationController
 
   def new
+    @player = Player.new
+    @team = Team.find(params[:team_id])
   end
 
   def create
-    Player.create(player_params)
-    
+    @player = Player.new(player_params)
+    @player.save
+    redirect_to :root
   end
 
   def edit
@@ -19,7 +22,7 @@ class PlayersController < ApplicationController
 
   private
   def player_params
-    params.permit(:name, :at_bat, :hand, :number)
+    params.require(:player).permit(:name, :at_bat, :hand, :number).merge(team_id: params[:team_id])
   end
 end
 

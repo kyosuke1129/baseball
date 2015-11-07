@@ -1,4 +1,15 @@
-<%= @teams.each do |team| %>
+  <p1> チーム一覧</p1><br>
+  
+
+
+<% @teams.each do |team| %>
+
+  <%= link_to "#{team.key}",team_path(team) %><br>
+
+
+
+
+
 
 
 <% end %>
