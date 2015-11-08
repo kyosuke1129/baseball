@@ -8,7 +8,7 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(player_params)
     @player.save
-    redirect_to :root
+    redirect_to controller: :teams, action: :show, id: params[:team_id]
   end
 
   def edit
