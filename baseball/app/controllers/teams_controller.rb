@@ -8,9 +8,8 @@ class TeamsController < ApplicationController
   end
 
   def create
-    binding pry
     @team = Team.create(team_params)
-    @team.save
+    redirect_to controller: :teams, action: :show, id: @team.id
   end
 
 
@@ -23,7 +22,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
   end
 
-  def update     
+  def update
     @team = Team.find(params[:id])
     @team.update(update_params)
   end
@@ -34,7 +33,7 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit(:key)
+    params.require(:team).permit(:key, :detail).merge(user_id: current_user.id)
   end
 
 end
