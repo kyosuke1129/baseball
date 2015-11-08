@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'top#index'
   resources :users, only: [:show, :edit, :update]
 
-  resources :teams, only: [:index, :show, :edit, :update ] do
+  resources :teams, only: [:index, :new, :create, :show, :edit, :update ] do
    resources :players, only: [:show, :edit, :update, :create,:new]
   end
 end

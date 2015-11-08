@@ -16,10 +16,7 @@
         <div>
           <%= f.password_field :password, autocomplete: 'off', placeholder: 'パスワード', class: 'input form-control' %>
         </div><br />
-        <div class='form-group'>
-          <%= f.label :チーム名（半角英数） %><br />
-          <%= f.text_field :team_key, autofocus: true, class: 'form-control' %>
-        </div>
+       
 
         <% if devise_mapping.rememberable? %>
           <div class='checkbox'>
