@@ -12,6 +12,7 @@ class PlayersController < ApplicationController
   end
 
   def edit
+    @player = Player.find(params[:player_params])
   end
 
   def show
@@ -22,7 +23,7 @@ class PlayersController < ApplicationController
 
   private
   def player_params
-    params.require(:player).permit(:name, :at_bat, :hand, :number).merge(team_id: params[:team_id])
+    params.require(:player).permit(:name, :at_bat, :hand, :number, :at_bats, :hit, :two_base_hit, :three_base_hit, :home_run, :walks, :struck_out, :score, :double_play, :catching_killing, :defensive_opportunity).merge(team_id: params[:team_id])
   end
 end
 

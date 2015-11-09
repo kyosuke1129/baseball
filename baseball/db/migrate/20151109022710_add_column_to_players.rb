@@ -1,8 +1,5 @@
-class AddNunberToPlayers < ActiveRecord::Migration
+class AddColumnToPlayers < ActiveRecord::Migration
   def change
-    add_column :players, :at_bat, :string
-    add_column :players, :number, :integer
-    add_column :players, :hand, :string
     add_column :players, :at_bats, :integer
     add_column :players, :hit, :integer
     add_column :players, :two_base_hit, :integer
@@ -12,8 +9,7 @@ class AddNunberToPlayers < ActiveRecord::Migration
     add_column :players, :struck_out, :integer
     add_column :players, :score, :integer
     add_column :players, :double_play, :integer
-
-
-
+    add_column :players, :catching_killing, :integer
+    add_column :players, :defensive_opportunity, :integer
   end
 end
