@@ -4,18 +4,23 @@
 </h1>
 <h4>
   選手一覧
-</h4>
+  </h4>
+  <%= link_to "選手登録", new_team_player_path(@team) %>
+
    
 
    <% @players.each do |player| %>
     <p>
-      <%= player.number %>     <%= player.name %>  <%= player.at_bat %>    <%= player.hand %>
+      <%= player.number %>     <%= player.name %>  <%= player.at_bat %>    <%= player.hand %>        <%= player.at_bats %>    <%= player.hit %>    <%= player.two_base_hit %>    <%= player.three_base_hit %>    <%= player.home_run %>    <%= player.walks %>    <%= player.struck_out %>    <%= player.score %>    <%= player.double_play %>    <%= player.catching_killing %>    <%= player.defensive_opportunity %>
+
+      <%= link_to "編集：成績入力", edit_team_player_path(@team.id, player.id) %>
+
+
 
     </p>
 
     <% end %>
 
-    <%= link_to "選手登録", new_team_player_path(@team) %>
-    <%= link_to "編集：成績入力", edit_team_player_path(@team) %>
-
+    
+    
 

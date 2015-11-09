@@ -12,17 +12,24 @@ class PlayersController < ApplicationController
   end
 
   def edit
-    @player = Player.find(params[:player_params])
+    @player = Player.find(params[:id])
+    @team = Team.find(params[:team_id])
   end
+    
 
   def show
   end
 
   def update
+    player = Player.find(params[:id])
+    player.update(player_params)
+    
+    redirect_to controller: :teams, action: :show, id: params[:team_id]
   end
 
   private
   def player_params
+    
     params.require(:player).permit(:name, :at_bat, :hand, :number, :at_bats, :hit, :two_base_hit, :three_base_hit, :home_run, :walks, :struck_out, :score, :double_play, :catching_killing, :defensive_opportunity).merge(team_id: params[:team_id])
   end
 end
