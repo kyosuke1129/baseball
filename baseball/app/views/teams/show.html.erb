@@ -15,6 +15,8 @@
          <th align="center">利き腕</th>
          <th align="center">打率</th>
          <th align="center">出塁率</th>
+         <th align="center">長打率</th>
+         <th align="center">OPS</th>
          <th align="center">打数</th>
          <th align="center">安打</th>
          <th align="center">二塁打</th>
@@ -22,6 +24,7 @@
          <th align="center">本塁打</th>
          <th align="center">四死球</th>
          <th align="center">犠飛</th>
+         <th align="center">犠打</th>
          <th align="center">盗塁</th>
          <th align="center">得点</th>
          <th align="center">三振</th>
@@ -42,6 +45,8 @@
            <td align="center"><%= player.hand %></td>
            <td align="center">.<%= player.average %></td>
            <td align="center">.<%= player.on_base_percentage %></td>
+           <td align="center">.<%= player.sulluging_percentage %></td>
+           <td align="center">.<%= player.ops %></td>
            <td align="center"><%= player.at_bats %> </td>
            <td align="center"><%= player.hit %></td>
            <td align="center"><%= player.two_base_hit %></td>
@@ -49,6 +54,7 @@
            <td align="center"><%= player.home_run %> </td>
            <td align="center"><%= player.walks %></td>
            <td align="center"><%= player.sacrificefly %></td>
+           <td align="center"><%= player.bunt %></td>
            <td align="center"><%= player.stolen_base %></td>
            <td align="center"><%= player.struck_out %></td>
            <td align="center"><%= player.score %> </td>

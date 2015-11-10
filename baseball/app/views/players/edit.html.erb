@@ -18,8 +18,10 @@
        >
        四死球：<%= f.number_field :walks, placeholder: "#{@player.walks}", class: "form-control" %><br>
        犠飛：<%= f.number_field :sacrificefly, placeholder: "#{@player.sacrificefly}", class: "form-control" %><br>
+       犠打：<%= f.number_field :bunt, placeholder: "#{@player.bunt}", class: "form-control" %><br>
+       
         得点：<%= f.number_field :score, placeholder: "#{@player.score}", class: "form-control" %><br>
-        盗塁：<%= f.number_field :steolen_base, placeholder: "#{@player.steolen_base}", class: "form-control" %><br>
+        盗塁：<%= f.number_field :stolen_base, placeholder: "#{@player.stolen_base}", class: "form-control" %><br>
         三振：<%= f.number_field :struck_out, placeholder: "#{@player.struck_out}", class: "form-control" %><br>
         併殺：<%= f.number_field :double_play, placeholder: "#{@player.double_play}", class: "form-control" %><br>
       </div>
