@@ -7,16 +7,22 @@
   </h4>
   <%= link_to "選手登録", new_team_player_path(@team) %>
     <table class = "table table-bordered">
+    <label><input type="checkbox" id="check">打率</label>
+    <label><input type="checkbox" id="check2">出塁率</label>
+    <label><input type="checkbox" id="check3">長打率</label>
+    <label><input type="checkbox" id="check4">OPS</label>
+    <!-- <label><input type="checkbox" id="check4">RC</label> -->
+
    <thead>
       <tr>
-         <th align="center">背番号</th>
+         <th align="center" >背番号</th>
          <th align="center">選手名</th>
          <th align="center">打席</th>
          <th align="center">利き腕</th>
-         <th align="center">打率</th>
-         <th align="center">出塁率</th>
-         <th align="center">長打率</th>
-         <th align="center">OPS</th>
+         <th align="center" class="average">打率</th>
+         <th align="center" class="on_base">出塁率</th>
+         <th align="center" class="sulluging">長打率</th>
+         <th align="center" class="ops">OPS</th>
          <th align="center">打数</th>
          <th align="center">安打</th>
          <th align="center">二塁打</th>
@@ -39,14 +45,14 @@
                                
       <% @players.each do |player| %>
         <tr>
-           <td align="center"><%= player.number %></td>
+           <td align="center" ><%= player.number %></td>
            <td align="center"><%= player.name %></td>
-           <td align="center"><%= player.at_bat %> </td>
+           <td align="center"><%= player.at_bat %></td>
            <td align="center"><%= player.hand %></td>
-           <td align="center">.<%= player.average %></td>
-           <td align="center">.<%= player.on_base_percentage %></td>
-           <td align="center">.<%= player.sulluging_percentage %></td>
-           <td align="center">.<%= player.ops %></td>
+           <td align="center" class="average">.<%= player.average %></td>
+           <td align="center" class="on_base">.<%= player.on_base_percentage %></td>
+           <td align="center" class="sulluging">.<%= player.sulluging_percentage %></td>
+           <td align="center" class="ops">.<%= player.ops %></td>
            <td align="center"><%= player.at_bats %> </td>
            <td align="center"><%= player.hit %></td>
            <td align="center"><%= player.two_base_hit %></td>
@@ -64,9 +70,6 @@
            <td align="center"><%= link_to "編集：成績入力", edit_team_player_path(@team.id, player.id) %></td>
          </tr>
         <% end %>
-      
    </tbody>
-  
 </table>
-    
 
