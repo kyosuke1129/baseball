@@ -5,5 +5,8 @@ Rails.application.routes.draw do
 
   resources :teams, only: [:index, :new, :create, :show, :edit, :update ] do
    resources :players, only: [:show, :edit, :update, :create,:new]
-  end
+  
+
+   resources :settings, only: [:new, :create, :edit, :update]
+ end
 end

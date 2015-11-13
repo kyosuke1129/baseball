@@ -16,6 +16,7 @@ class TeamsController < ApplicationController
   def show
     @team = Team.find(params[:id])
     @players = @team.players.order('number ASC')
+    @setting = @team.setting
   end
 
   def edit

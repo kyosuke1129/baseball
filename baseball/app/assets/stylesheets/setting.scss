@@ -1,0 +1,32 @@
+body{
+  background-color: #f0f0f0;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+    padding: 10px 0;
+    margin: 0;
+    font-size: 20px;
+}
+
+h2 {
+  padding-top: 10px 0;
+  text-align: center;
+}
+
+
+section, {
+  border :1px solid #111111 ;
+  width : 500px ;
+  margin: 0 auto ;
+}
+
+#submit{
+  width : 500px ;
+  margin: 0 auto ;
+  float: right;
+}
+
+.subtitle{
+  padding-top: 5px;
+  text-align: center;
+}

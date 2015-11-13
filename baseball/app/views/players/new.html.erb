@@ -1,19 +1,20 @@
-<%= form_for [@team, @player] do |f| %>
+<body>
+  
+
+
+  <%= form_for [@team, @player] do |f| %>
     <h3>
       登録
     </h3>
+    <div>
      名前：<%= f.text_field :name, placeholder: "名前", class: "form-control" %><br>
      打席：<%= f.text_field :at_bat, placeholder: "打席", class: "form-control" %><br>
      利き手：<%= f.text_field :hand, placeholder: "利き手", class: "form-control" %><br>
      背番号：<%= f.text_field :number, placeholder: "背番号", class: "form-control" %><br>
 
       <%= f.submit "送信", class: "btn btn-primary withripple" %>
-
-   <!--  名前：<input placeholder="名前" type="text" name="name"><br>
-    打席：<input placeholder="打席" type="text" name="at_bat"><br>
-    利き手：<input placeholder="利き手" type="text" name="hand"><br>
-    背番号：<input placeholder="背番号" type="integer" name="number"><br>
+    </div>
+  <% end %>
 
 
-    <input type="submit" value="SENT"> -->
-<% end %>
+</body>

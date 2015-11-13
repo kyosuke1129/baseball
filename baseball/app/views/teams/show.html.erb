@@ -6,12 +6,13 @@
   選手一覧
   </h4>
   <%= link_to "選手登録", new_team_player_path(@team) %>
+  <%= link_to "項目設定", new_team_setting_path(@team) %>
     <table class = "table table-bordered">
-    <label><input type="checkbox" id="check">打率</label>
+    <!-- <label><input type="checkbox" id="check">打率</label>
     <label><input type="checkbox" id="check2">出塁率</label>
     <label><input type="checkbox" id="check3">長打率</label>
-    <label><input type="checkbox" id="check4">OPS</label>
-    <!-- <label><input type="checkbox" id="check4">RC</label> -->
+    <label><input type="checkbox" id="check4">OPS</label> -->
+
 
    <thead>
       <tr>
@@ -19,55 +20,96 @@
          <th align="center">選手名</th>
          <th align="center">打席</th>
          <th align="center">利き腕</th>
-         <th align="center" class="average">打率</th>
-         <th align="center" class="on_base">出塁率</th>
-         <th align="center" class="sulluging">長打率</th>
-         <th align="center" class="ops">OPS</th>
-         <th align="center">打数</th>
-         <th align="center">安打</th>
-         <th align="center">二塁打</th>
-         <th align="center">三塁打</th>
-         <th align="center">本塁打</th>
-         <th align="center">四死球</th>
-         <th align="center">犠飛</th>
-         <th align="center">犠打</th>
-         <th align="center">盗塁</th>
-         <th align="center">得点</th>
-         <th align="center">三振</th>
-         <th align="center">併殺</th>
-         <th align="center">捕殺</th>
-         <th align="center">守備機会</th>
-         <th align="center">編集：入力</th>
+          <th align="center">打数</th>
+         <% if @setting.average == 1 %><th align="center">打率</th><% end %>
+         <% if @setting.on_base_percentage == 1 %><th align="center">出塁率</th><% end %>
+         <% if @setting.sulluging_percentage == 1 %><th align="center">長打率</th><% end %>
+         <% if @setting.ops == 1 %><th align="center" >OPS</th><% end %>
+         <% if @setting.hit == 1 %><th align="center">安打</th><% end %>
+         <% if @setting.two_base_hit == 1 %><th align="center">二塁打</th><% end %>
+         <% if @setting.three_base_hit == 1 %><th align="center">三塁打</th><% end %>
+         <% if @setting.home_run == 1 %><th align="center">本塁打</th><% end %>
+         <% if @setting.walks == 1 %><th align="center">四死球</th><% end %>
+         <% if @setting.sacrificefly == 1 %><th align="center">犠飛</th><% end %>
+         <% if @setting.bunt == 1 %><th align="center">犠打</th><% end %>
+         <% if @setting.steal == 1 %><th align="center">盗塁企画数</th><% end %>
+         <% if @setting.stolen_base == 1 %><th align="center">盗塁成功数</th><% end %>
+         <% if @setting.success_rate == 1 %><th align="center">盗塁成功率</th><% end %>
+         <% if @setting.score == 1 %><th align="center">得点</th><% end %>
+         <% if @setting.struck_out == 1 %><th align="center">三振</th><% end %>
+         <% if @setting.double_play == 1 %><th align="center">併殺</th><% end %>
+         <% if @setting.catching_killing == 1 %><th align="center">捕殺</th><% end %>
+         <% if @setting.defensive_opportunity == 1 %><th align="center">守備機会</th><% end %>
+          <th align="center">編集</th>
       </tr>
    </thead>
-   
+
    <tbody>
-                               
       <% @players.each do |player| %>
         <tr>
            <td align="center" ><%= player.number %></td>
            <td align="center"><%= player.name %></td>
            <td align="center"><%= player.at_bat %></td>
            <td align="center"><%= player.hand %></td>
-           <td align="center" class="average">.<%= player.average %></td>
-           <td align="center" class="on_base">.<%= player.on_base_percentage %></td>
-           <td align="center" class="sulluging">.<%= player.sulluging_percentage %></td>
-           <td align="center" class="ops">.<%= player.ops %></td>
-           <td align="center"><%= player.at_bats %> </td>
-           <td align="center"><%= player.hit %></td>
-           <td align="center"><%= player.two_base_hit %></td>
-           <td align="center"><%= player.three_base_hit %></td>
-           <td align="center"><%= player.home_run %> </td>
-           <td align="center"><%= player.walks %></td>
-           <td align="center"><%= player.sacrificefly %></td>
-           <td align="center"><%= player.bunt %></td>
-           <td align="center"><%= player.stolen_base %></td>
-           <td align="center"><%= player.struck_out %></td>
-           <td align="center"><%= player.score %> </td>
-           <td align="center"><%= player.double_play %></td>
-           <td align="center"><%= player.catching_killing %></td>
-           <td align="center"><%= player.defensive_opportunity %></td>
-           <td align="center"><%= link_to "編集：成績入力", edit_team_player_path(@team.id, player.id) %></td>
+           <td align="center"><%= player.at_bats %></td>
+           <% if @setting.average == 1 %>
+             <td align="center">.<%= player.average %></td>
+           <% end %>
+           <% if @setting.on_base_percentage == 1 %>
+             <td align="center" >.<%= player.on_base_percentage %></td>
+           <% end %>
+           <% if @setting.sulluging_percentage == 1 %>
+             <td align="center">.<%= player.sulluging_percentage %></td>
+           <% end %>
+           <% if @setting.ops == 1 %>
+             <td align="center">.<%= player.ops %></td>
+           <% end %>
+           <% if @setting.hit == 1 %>
+             <td align="center"><%= player.hit %></td>
+           <% end %>
+           <% if @setting.two_base_hit == 1 %>  
+             <td align="center"><%= player.two_base_hit %></td>
+           <% end %>
+           <% if @setting.three_base_hit == 1 %>  
+             <td align="center"><%= player.three_base_hit %></td>
+           <% end %>
+           <% if @setting.home_run == 1 %>  
+             <td align="center"><%= player.home_run %> </td>
+           <% end %>
+           <% if @setting.walks == 1 %>
+             <td align="center"><%= player.walks %></td>
+           <% end %>
+           <% if @setting.sacrificefly == 1 %>
+             <td align="center"><%= player.sacrificefly %></td>
+           <% end %>
+           <% if @setting.bunt == 1 %>
+             <td align="center"><%= player.bunt %></td>
+           <% end %>
+           <% if @setting.steal == 1 %>
+             <td align="center"><%= player.steal %></td>
+           <% end %>
+           <% if @setting.stolen_base == 1 %>
+             <td align="center"><%= player.stolen_base %></td>
+           <% end %>
+           <% if @setting.success_rate == 1 %>
+             <td align="center">.<%= player.success_rate %></td>
+           <% end %>
+           <% if @setting.struck_out == 1 %>
+             <td align="center"><%= player.struck_out %></td>
+           <% end %>
+           <% if @setting.score == 1 %>
+             <td align="center"><%= player.score %></td>
+           <% end %>
+           <% if @setting.double_play == 1 %>
+             <td align="center"><%= player.double_play %></td>
+           <% end %>
+           <% if @setting.catching_killing == 1 %>
+             <td align="center"><%= player.catching_killing %></td>
+           <% end %>
+           <% if @setting.defensive_opportunity == 1 %>
+             <td align="center"><%= player.defensive_opportunity %></td>
+           <% end %>
+           <td align="center"><%= link_to "編集", edit_team_player_path(@team.id, player.id) %></td>
          </tr>
         <% end %>
    </tbody>
