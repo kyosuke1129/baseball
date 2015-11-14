@@ -1,13 +1,15 @@
-<%= form_for [@team, @player] do |f| %>
+<div class="contents">
+
+  <%= form_for [@team, @player] do |f| %>
     <h3>
-      編集：成績
+      編集/成績
     </h3>
     <div>
      名前：<%= f.text_field :name, placeholder: "#{@player.name}", class: "form-control" %><br>
      打席：<%= f.text_field :at_bat, placeholder: "#{@player.at_bat}", class: "form-control" %><br>
      利き手：<%= f.text_field :hand, placeholder: "#{@player.hand}", class: "form-control" %><br>
      背番号：<%= f.text_field :number, placeholder: "#{@player.number}", class: "form-control" %><br>
-   </div>
+    </div>
 
     <div>
       打数：<%= f.number_field :at_bats, placeholder: "#{@player.at_bats}", class: "form-control" %><br>
@@ -19,7 +21,6 @@
        四死球：<%= f.number_field :walks, placeholder: "#{@player.walks}", class: "form-control" %><br>
        犠飛：<%= f.number_field :sacrificefly, placeholder: "#{@player.sacrificefly}", class: "form-control" %><br>
        犠打：<%= f.number_field :bunt, placeholder: "#{@player.bunt}", class: "form-control" %><br>
-       
         得点：<%= f.number_field :score, placeholder: "#{@player.score}", class: "form-control" %><br>
         盗塁企画数：<%= f.number_field :steal, placeholder: "#{@player.steal}", class: "form-control" %><br>
         盗塁成功数：<%= f.number_field :stolen_base, placeholder: "#{@player.stolen_base}", class: "form-control" %><br>
@@ -31,12 +32,13 @@
 
         捕殺：<%= f.number_field :catching_killing, placeholder: "#{@player.catching_killing}", class: "form-control" %><br>
         守備機会：<%= f.number_field :defensive_opportunity, placeholder: "#{@player.defensive_opportunity}", class: "form-control" %><br>
-        エラー：<%= f.number_field :error, placeholder: "#{@player.error}", class: "form-control" %><br>
+        エラー：<%= f.number_field :error, placeholder: "#{@player.error}", class: "form-control" %>
       </div>
+        <%= f.submit "送信", class: "btn btn-info withripple" %>
 
     </div>
 
 
-      <%= f.submit "送信", class: "btn btn-primary withripple" %>
 
-      <% end %>
+
+  <% end %>

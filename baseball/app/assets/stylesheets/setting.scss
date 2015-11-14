@@ -1,5 +1,9 @@
 body{
-  background-color: #f0f0f0;
+  background-color: #EDFAFA;
+}
+
+.padding-test {
+    margin: 0 20px;
 }
 
 h1,h2,h3,h4,h5,h6,p {
@@ -8,25 +12,34 @@ h1,h2,h3,h4,h5,h6,p {
     font-size: 20px;
 }
 
-h2 {
-  padding-top: 10px 0;
+.form_header {
   text-align: center;
 }
 
 
-section, {
-  border :1px solid #111111 ;
-  width : 500px ;
-  margin: 0 auto ;
+h2.subtitle{
+  display: inline;
+  font-weight: bold;
 }
 
-#submit{
+
+section {
+  border :1px solid #111111 ;
   width : 500px ;
-  margin: 0 auto ;
+  margin: 0 20px ;
+}
+
+
+section .subtitle {
+  padding: 5px 0 0 10px;
+}
+
+.setting-submit{
+  background-color: #A9A9F5 ;
   float: right;
 }
 
-.subtitle{
-  padding-top: 5px;
-  text-align: center;
+.edit-box{
+  width: 520px;
+  float: left;
 }

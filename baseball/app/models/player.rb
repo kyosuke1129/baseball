@@ -2,13 +2,15 @@ class Player < ActiveRecord::Base
 
   belongs_to :team
 
+
+
   def p_at_bats
    (self.at_bats - self.walks  -  self.sacrificefly - self.bunt) if bunt &&walks && sacrificefly && at_bats
   end
 
 
   def average
-     (self.hit * 1000 / p_at_bats) if hit 
+     (self.hit * 1000 / p_at_bats) if hit
   end
 
   def on_base_percentage
@@ -30,6 +32,9 @@ class Player < ActiveRecord::Base
   def success_rate
     stolen_base * 1000 / steal if steal && stolen_base && steal != 0
   end
+
+
+
 
 
 

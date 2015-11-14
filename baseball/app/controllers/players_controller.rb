@@ -22,6 +22,7 @@ class PlayersController < ApplicationController
   end
 
   def update
+
     player = Player.find(params[:id])
     player.update(player_params)
     

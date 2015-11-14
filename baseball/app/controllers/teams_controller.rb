@@ -15,8 +15,15 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
-    @players = @team.players.order('number ASC')
     @setting = @team.setting
+    if ["average","on_base_percentage","sulluging_percentage","ops","success_rate",].include? params[:index]
+    params[:down] = "number" unless params[:down] || params[:up] || params[:index]
+      @players = @team.players.order("#{params[:down]} ASC") if params[:down]
+      @players = @team.players.order("#{params[:up]} DESC") if params[:up]
+      @players = @team.players.sort { |a, b| b.send("#{params[:index]}") <=> a.send("#{params[:index]}") }if params[:index]
+    else
+      @players = @team.players
+    end
   end
 
   def edit
