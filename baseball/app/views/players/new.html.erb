@@ -1,0 +1,23 @@
+<body>
+  
+  <div class="form-box">
+    <%= form_for [@team, @player] do |f| %>
+      <h3>
+        登録
+      </h3>
+      <div>
+       　名前：<%= f.text_field :name, placeholder: "名前", class: "form-control" %><br>
+       　打席：<%= f.text_field :at_bat, placeholder: "打席", class: "form-control" %><br>
+       利き手：<%= f.text_field :hand, placeholder: "利き手", class: "form-control" %><br>
+       背番号：<%= f.text_field :number, placeholder: "背番号", class: "form-control" %><br>
+        <div class="clearfix">
+        <%= f.submit "送信", class: "btn-primary" %>
+        </div><br>
+      </div>
+    <% end %>
+
+    </div>
+
+
+
+</body>

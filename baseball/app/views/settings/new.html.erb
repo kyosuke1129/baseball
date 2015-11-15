@@ -1,0 +1,117 @@
+<body>
+
+  <h2>表示設定</h2>
+   <%= form_for [@team, @setting] do |f| %>
+  <section>
+      <p class="subtitle"><b>打撃</b></p>
+      <div class="radio-inline">
+       <%= f.check_box :hit %>
+          <label for="man">安打</label>
+      </div>
+      <div class="radio-inline">
+       <%= f.check_box :two_base_hit %>
+        <label for="man">二塁打</label>
+      </div>
+
+      <div class="radio-inline">
+       <%= f.check_box :three_base_hit %>
+        <label for="man">三塁打</label>
+      </div>
+
+      <div class="radio-inline">
+       <%= f.check_box :home_run %>
+        <label for="man">本塁打</label>
+      </div>
+
+      <div class="radio-inline">
+      　<%= f.check_box :walks %>
+        <label for="man">四死球</label>
+      </div><br>
+
+      <div class="radio-inline">
+       <%= f.check_box :sacrificefly %>
+        <label for="man">犠飛</label>
+      </div>
+
+      <div class="radio-inline">
+       <%= f.check_box :bunt %>
+        <label for="man">犠打</label>
+      </div>
+
+      <div class="radio-inline">
+       <%= f.check_box :score %>
+        <label for="man">得点</label>
+      </div>
+
+      <div class="radio-inline">
+      　<%= f.check_box :struck_out %>
+        <label for="man">三振</label>
+      </div>
+
+      <div class="radio-inline">
+       <%= f.check_box :sacrificefly %>
+        <label for="man">併殺</label>
+  </section><br>
+
+  <section>
+    <p class="subtitle"><b>走塁</b></p>
+      <div class="radio-inline">
+      <%= f.check_box :steal %>
+        <label for="man">盗塁企画</label>
+      </div>
+
+      <div class="radio-inline">
+       <%= f.check_box :stolen_base %>
+        <label for="man">盗塁成功数</label>
+      </div>
+  </section><br>
+  <section>
+    <p class="subtitle"><b>守備</b></p>
+      <div class="radio-inline">
+       <%= f.check_box :catching_killing %>
+        <label for="man">捕殺</label>
+      </div>
+
+      <div class="radio-inline">
+       <%= f.check_box :defensive_opportunity %>
+        <label for="man">守備機会</label>
+      </div>
+
+      <div class="radio-inline">
+       <%= f.check_box :error %>
+        <label for="man">失策</label>
+      </div>
+    </div>
+  </section><br>
+
+  <section>
+  <p class="subtitle"><b>指標</b></p>
+      <div class="radio-inline">
+       <%= f.check_box :average %>
+        <label for="man">打率</label>
+      </div>
+
+      <div class="radio-inline">
+       <%= f.check_box :on_base_percentage %>
+        <label for="man">出塁率</label>
+      </div>
+      <div class="radio-inline">
+       <%= f.check_box :sulluging_percentage %>
+        <label for="man">長打率</label>
+      </div>
+      <div class="radio-inline">
+       <%= f.check_box :ops %>
+        <label for="man">OPS</label>
+      </div>
+      <div class="radio-inline">
+       <%= f.check_box :success_rate %>
+        <label for="man">盗塁成功率</label>
+      </div>
+    </section><br>
+
+     <div id = "submit">
+      <%= f.submit "設定", class: "btn btn-primary withripple" %>
+    </div>
+      <% end %>
+
+</body>

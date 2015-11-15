@@ -1,0 +1,44 @@
+<div class="contents">
+
+  <%= form_for [@team, @player] do |f| %>
+    <h3>
+      編集/成績
+    </h3>
+    <div>
+     名前：<%= f.text_field :name, placeholder: "#{@player.name}", class: "form-control" %><br>
+     打席：<%= f.text_field :at_bat, placeholder: "#{@player.at_bat}", class: "form-control" %><br>
+     利き手：<%= f.text_field :hand, placeholder: "#{@player.hand}", class: "form-control" %><br>
+     背番号：<%= f.text_field :number, placeholder: "#{@player.number}", class: "form-control" %><br>
+    </div>
+
+    <div>
+      打数：<%= f.number_field :at_bats, placeholder: "#{@player.at_bats}", class: "form-control" %><br>
+       安打：<%= f.number_field :hit, placeholder: "#{@player.hit}", class: "form-control" %><br>
+      二塁打：<%= f.number_field :two_base_hit, placeholder: "#{@player.two_base_hit}", class: "form-control" %><br>
+      三塁打：<%= f.number_field :three_base_hit, placeholder: "#{@player.three_base_hit}", class: "form-control" %><br>
+      本塁打：<%= f.number_field :home_run, placeholder: "#{@player.home_run}", class: "form-control" %><br
+       >
+       四死球：<%= f.number_field :walks, placeholder: "#{@player.walks}", class: "form-control" %><br>
+       犠飛：<%= f.number_field :sacrificefly, placeholder: "#{@player.sacrificefly}", class: "form-control" %><br>
+       犠打：<%= f.number_field :bunt, placeholder: "#{@player.bunt}", class: "form-control" %><br>
+        得点：<%= f.number_field :score, placeholder: "#{@player.score}", class: "form-control" %><br>
+        盗塁企画数：<%= f.number_field :steal, placeholder: "#{@player.steal}", class: "form-control" %><br>
+        盗塁成功数：<%= f.number_field :stolen_base, placeholder: "#{@player.stolen_base}", class: "form-control" %><br>
+        三振：<%= f.number_field :struck_out, placeholder: "#{@player.struck_out}", class: "form-control" %><br>
+        併殺：<%= f.number_field :double_play, placeholder: "#{@player.double_play}", class: "form-control" %><br>
+      </div>
+
+      <div>
+
+        捕殺：<%= f.number_field :catching_killing, placeholder: "#{@player.catching_killing}", class: "form-control" %><br>
+        守備機会：<%= f.number_field :defensive_opportunity, placeholder: "#{@player.defensive_opportunity}", class: "form-control" %><br>
+        エラー：<%= f.number_field :error, placeholder: "#{@player.error}", class: "form-control" %>
+      </div>
+        <%= f.submit "送信", class: "btn btn-info withripple" %>
+
+    </div>
+
+
+
+
+  <% end %>
