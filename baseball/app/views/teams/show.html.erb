@@ -14,7 +14,7 @@
          <th align="center" >背番号</th>
          <th align="center">選手名</th>
          <th align="center">打席</th>
-         <th align="center">利き腕</th>
+         <th align="center">利腕</th>
           <th align="center"><%= link_to "打数", team_path(@team.id, up: "at_bats" ) %></th>
          <% if @setting.average == 1 %><th align="center"><%= link_to "打率", team_path(@team.id, index: "average" ) %></th><% end %>
          <% if @setting.on_base_percentage == 1 %><th align="center"><%= link_to "出塁率", team_path(@team.id, index: "on_base_percentage" ) %></th><% end %>
@@ -110,22 +110,27 @@
         <% end %>
    </tbody>
    <tfoot>
-         <th align="center" >背番号</th>
-         <th align="center">選手名</th>
-         <th align="center">打席</th>
-         <th align="center">利き腕</th>
+         <th colspan="4">合計</th>
          <th align="center" ><%= @team.total_at_bats %></th>
-         <th align="center">選手名</th>
-         <th align="center">打席</th>
-         <th align="center">利き腕</th>
-         <th align="center" >背番号</th>
+         <th align="center">.<%= @team.averages %></th></th>
+         <th align="center">.<%= @team.on_base_percentages %></th></th>
+         <th align="center">.<%= @team.sulluging_percentages %></th></th>
+         <th align="center">.<%= @team.total_ops %></th></th>
          <th align="center"><%= @team.total_hits %></th>
-         <th align="center">打席</th>
-         <th align="center">利き腕</th>
-         <th align="center" >背番号</th>
-         <th align="center">選手名</th>
-         <th align="center">打席</th>
-         <th align="center">利き腕</th>
+         <th align="center"><%= @team.total_two_base_hits %></th>
+         <th align="center"><%= @team.total_three_base_hits %></th>
+         <th align="center"><%= @team.total_home_runs %></th>
+         <th align="center"><%= @team.total_walks %></th>
+         <th align="center"><%= @team.total_sacrificeflys %></th>
+         <th align="center"><%= @team.total_bunts %></th>
+         <th align="center"><%= @team.total_steals %></th>
+         <th align="center"><%= @team.total_stolen_bases %></th>
+         <th align="center">.<%= @team.success_rates %></th></th>
+         <th align="center"><%= @team.total_scores %></th>
+         <th align="center"><%= @team.total_struck_outs %></th>
+         <th align="center"><%= @team.total_catching_killings %></th>
+         <th align="center"><%= @team.total_defensive_opportunitys %></th>
+         <th align="center"></th>
    </tfoot>
 </table>
 
